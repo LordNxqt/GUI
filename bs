@@ -1,35 +1,6 @@
 local plr = game.Players.LocalPlayer
 local RunService = game:GetService("RunService")
 
-local allTabs = {Main, Tools, Global, Misc, Keybinds}
-
-local function openTab(tab)
-    for _, t in pairs(allTabs) do
-        t.Visible = false
-    end
-    tab.Visible = true
-end
-
-MainB.MouseButton1Click:Connect(function()
-    openTab(Main)
-end)
-
-ToolsB.MouseButton1Click:Connect(function()
-    openTab(Tools)
-end)
-
-GlobalB.MouseButton1Click:Connect(function()
-    openTab(Global)
-end)
-
-MiscB.MouseButton1Click:Connect(function()
-    openTab(Misc)
-end)
-
-KeybindsB.MouseButton1Click:Connect(function()
-    openTab(Keybinds)
-end)
-
 local GUI = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
 local Line = Instance.new("Frame")
