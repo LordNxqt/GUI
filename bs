@@ -893,7 +893,10 @@ local flingTextBox = fling
 local loopflingTextBox = loopfling
 local isLoopFlingActive = false
 local loopConnection
-
+-- lfp v2
+local isFlingV2Looping = false
+local flingV2LoopConnection
+local isHiddenV2Active = false
 
 --[[
 Toggle , Button , Textbox]]
@@ -979,7 +982,7 @@ settoggle(AutoRespawn, fccolor9)(function(state)
 end)
 
 settoggle(Hiddenv2, fccolor10)(function(state)
-    print("Hiddenv2 toggled:", state)
+    isHiddenV2Active = state
 end)
 
 settoggle(AntiVelocity, fccolor1)(function(state)
@@ -1015,15 +1018,14 @@ settextbox(flingTextBox)(function()
     flingTextBox.Text = ""
 
     local targetPlayer = findplr(input)
-    if not targetPlayer or not targetPlayer.Character then return end
+    if not targetPlayer then return end
 
-    local hrp = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-    if not hrp then return end
-
-    for i = 1, 8 do
-        plr.Character.Picking:FireServer(hrp, Vector3.new(math.huge, math.huge, math.huge))
+    local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if targetPart then
+        plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
+        task.wait(0.1)
+        plr.Character.PuttingDown:FireServer()
     end
-    plr.Character.PuttingDown:FireServer()
 end)
 
 settextbox(loopflingTextBox)(function()
@@ -1031,7 +1033,7 @@ settextbox(loopflingTextBox)(function()
     loopflingTextBox.Text = ""
 
     local targetPlayer = findplr(input)
-    if not targetPlayer or not targetPlayer.Character then return end
+    if not targetPlayer then return end
 
     if loopConnection then
         loopConnection:Disconnect()
@@ -1042,16 +1044,14 @@ settextbox(loopflingTextBox)(function()
     loopConnection = RunService.Heartbeat:Connect(function()
         if not isLoopFlingActive then return end
 
-        local hrp = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-        if hrp then
-            for i = 1, 4 do
-                plr.Character.Picking:FireServer(hrp, Vector3.new(math.huge, math.huge, math.huge))
-            end
+        local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if targetPart then
+            plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
+            task.wait(0.1)
             plr.Character.PuttingDown:FireServer()
         end
     end)
 end)
-
 
 setbutton(ClearLoop)(function()
     isLoopFlingActive = false
@@ -1062,12 +1062,56 @@ setbutton(ClearLoop)(function()
     plr.Character.PuttingDown:FireServer()
 end)
 
-settextbox(flingv2)(function(text)
-    print("Fling v2 textbox changed:", text)
+settextbox(flingv2)(function()
+    local input = flingv2.Text
+    flingv2.Text = ""
+
+    local targetPlayer = findplr(input)
+    if not targetPlayer or not targetPlayer.Character then return end
+
+    local armSignal = targetPlayer.Character:FindFirstAncestorOfClass("Model")
+    if armSignal and armSignal:FindFirstChild("ArmAngleChange") then
+        if isHiddenV2Active then
+            armSignal.ArmAngleChange:FireServer(CFrame.new(
+                math.random(-99999, 99999),
+                -999,
+                math.random(-99999, 99999)
+            ))
+        else
+            armSignal.ArmAngleChange:FireServer(CFrame.new(math.huge, -999, math.huge))
+        end
+    end
 end)
 
-settextbox(loopflingv2)(function(text)
-    print("LoopFling v2 textbox changed:", text)
+settextbox(loopflingv2)(function()
+    local input = loopflingv2.Text
+    loopflingv2.Text = ""
+
+    local targetPlayer = findplr(input)
+    if not targetPlayer or not targetPlayer.Character then return end
+
+    if flingV2LoopConnection then
+        flingV2LoopConnection:Disconnect()
+        flingV2LoopConnection = nil
+    end
+
+    isFlingV2Looping = true
+    flingV2LoopConnection = RunService.Heartbeat:Connect(function()
+        if not isFlingV2Looping then return end
+
+        local armSignal = targetPlayer.Character:FindFirstAncestorOfClass("Model")
+        if armSignal and armSignal:FindFirstChild("ArmAngleChange") then
+            if isHiddenV2Active then
+                armSignal.ArmAngleChange:FireServer(CFrame.new(
+                    math.random(-99999, 99999),
+                    -999,
+                    math.random(-99999, 99999)
+                ))
+            else
+                armSignal.ArmAngleChange:FireServer(CFrame.new(math.huge, -999, math.huge))
+            end
+        end
+    end)
 end)
 
 settextbox(anvilkill)(function(text)
