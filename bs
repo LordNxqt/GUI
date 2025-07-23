@@ -1,5 +1,21 @@
-local plr = game.Players.LocalPlayer
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+local mouse = plr:GetMouse()
 local RunService = game:GetService("RunService")
+local prop1000 = PhysicalProperties.new(1000, 1000, 0, 1000, 0)
+
+local function findplr(text)
+    text = text:lower()
+    for _, v in pairs(plrs:GetPlayers()) do
+        if v ~= plr and (v.Name:lower():find(text) or v.DisplayName:lower():find(text)) then
+            return v
+        end
+    end
+end
+
+
+
+
 
 local GUI = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
@@ -65,7 +81,6 @@ local ToolsB = Instance.new("TextButton")
 GUI.Name = "GUI"
 GUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-GUI.ResetOnSpawn = false
 
 Container.Name = "Container"
 Container.Parent = GUI
@@ -839,6 +854,38 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
+-- antispinner
+
+local fakeaccs = false
+local function applyFakeAccs()
+    while fakeaccs do
+        for _, v in ipairs(workspace:GetChildren()) do
+            if v:IsA("Model") and v:FindFirstChild("Humanoid") and plrs:GetPlayerFromCharacter(v) and v ~= plr.Character then
+                for _, x in ipairs(v:GetChildren()) do
+                    if x:IsA("BasePart") then
+                        x.Massless = true
+                    end
+                end
+            end
+        end
+
+        if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and plr.Character:FindFirstChild("Head") then
+            for _, v in ipairs(plr.Character:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v.CustomPhysicalProperties = prop1000
+                end
+            end
+        end
+
+        task.wait(0.5)
+    end
+end
+
+
+
+
+
+
 
 
 --[[
@@ -892,7 +939,10 @@ settoggle(AntiAnvil, fccolor2)(function(state)
 end)
 
 settoggle(FakeAccs, fccolor3)(function(state)
-    print("FakeAccs toggled:", state)
+    fakeaccs = state
+    if fakeaccs then
+        task.spawn(applyFakeAccs)
+    end
 end)
 
 settoggle(AntiSpinner, fccolor4)(function(state)
@@ -952,15 +1002,45 @@ settoggle(LagServer, fccolor16)(function(state)
 end)
 
 setbutton(ClearLoop)(function()
-    print("ClearLoop clicked")
+    loopfling = false
+    if loopConnection then
+        loopConnection:Disconnect()
+        loopConnection = nil
+    end
+    plr.Character.PuttingDown:FireServer()
 end)
 
 settextbox(fling)(function(text)
-    print("Fling textbox changed:", text)
+    local targetPlayer = findplr(text)
+    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
+        task.wait(0.1)
+        plr.Character.PuttingDown:FireServer()
+    else
+        plr.Character.PuttingDown:FireServer()
+    end
 end)
 
 settextbox(loopfling)(function(text)
-    print("LoopFling textbox changed:", text)
+    local targetPlayer = findplr(text)
+    if loopConnection then
+        loopConnection:Disconnect()
+        loopConnection = nil
+    end
+
+    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        loopfling = true
+        loopConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            if not loopfling then return end
+            local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+            if targetPart then
+                plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
+                task.wait(0.1)
+                plr.Character.PuttingDown:FireServer()
+            end
+        end)
+    end
 end)
 
 settextbox(flingv2)(function(text)
