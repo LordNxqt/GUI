@@ -81,6 +81,7 @@ local ToolsB = Instance.new("TextButton")
 GUI.Name = "GUI"
 GUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+GUI.ResetOnSpawn = false
 
 Container.Name = "Container"
 Container.Parent = GUI
