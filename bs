@@ -775,34 +775,6 @@ ToolsB.TextScaled = true
 ToolsB.TextSize = 14.000
 ToolsB.TextWrapped = true
 
---[[
-scripts]]
-local antianvil = false
-
-RunService.Heartbeat:Connect(function()
-    if not antianvil then return end
-    if plr.Parent == nil then return end
-    for _, v in pairs(workspace:GetChildren()) do
-        if v:IsA("BasePart") and v.Name == "Anvil" and v:FindFirstChild("Script") then
-            local scriptValue = v.Script:FindFirstChild("Value")
-            if scriptValue and scriptValue.Value ~= plr then
-                plr.Character.Picking:FireServer(v, Vector3.new(math.huge, -math.huge, math.huge))
-                task.wait(0.1)
-                plr.Character.PuttingDown:FireServer()
-            end
-        end
-    end
-end)
-
-
-
---[[
-Toggle , Button , Textbox]]
-
-
-
-local toggleStates = {}
-
 function settoggle(button, colorFrame)
     return function(callback)
         toggleStates[button] = false
@@ -833,6 +805,56 @@ function settextbox(textbox)
         end)
     end
 end
+
+-- Toggle: AntiAnvil system
+local antianvil = false
+
+RunService.Heartbeat:Connect(function()
+    if not antianvil then return end
+    if plr.Parent == nil then return end
+    for _, v in pairs(workspace:GetChildren()) do
+        if v:IsA("BasePart") and v.Name == "Anvil" and v:FindFirstChild("Script") then
+            local scriptValue = v.Script:FindFirstChild("Value")
+            if scriptValue and scriptValue.Value ~= plr then
+                plr.Character.Picking:FireServer(v, Vector3.new(math.huge, -math.huge, math.huge))
+                task.wait(0.1)
+                plr.Character.PuttingDown:FireServer()
+            end
+        end
+    end
+end)
+
+-- Tab button logic
+local allTabs = {Main, Tools, Global, Misc, Keybinds}
+
+local function openTab(tab)
+    for _, t in pairs(allTabs) do
+        t.Visible = false
+    end
+    tab.Visible = true
+end
+
+MainB.MouseButton1Click:Connect(function()
+    openTab(Main)
+end)
+
+ToolsB.MouseButton1Click:Connect(function()
+    openTab(Tools)
+end)
+
+GlobalB.MouseButton1Click:Connect(function()
+    openTab(Global)
+end)
+
+MiscB.MouseButton1Click:Connect(function()
+    openTab(Misc)
+end)
+
+KeybindsB.MouseButton1Click:Connect(function()
+    openTab(Keybinds)
+end)
+
+
 
 settoggle(Antifling, fccolor)(function(state)
     print("Antifling toggled:", state)
