@@ -888,8 +888,9 @@ end
 
 
 -- lfp
-local loopfling = false
+local loopflingActive = false
 local loopConnection
+
 --[[
 Toggle , Button , Textbox]]
 
@@ -1004,7 +1005,7 @@ settoggle(LagServer, fccolor16)(function(state)
 end)
 
 setbutton(ClearLoop)(function()
-    loopfling = false
+    loopflingActive = false
     if loopConnection then
         loopConnection:Disconnect()
         loopConnection = nil
@@ -1038,9 +1039,9 @@ settextbox(loopfling)(function(textbox)
     end
 
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        loopfling = true
+          loopflingActive = true
         loopConnection = game:GetService("RunService").Heartbeat:Connect(function()
-            if not loopfling then return end
+                    if not loopflingActive then return end
             local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
             if targetPart then
                 plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
