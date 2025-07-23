@@ -86,6 +86,7 @@ GUI.ResetOnSpawn = false
 Container.Name = "Container"
 Container.Parent = GUI
 Container.Active = true
+Container.Draggable = true
 Container.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
 Container.BackgroundTransparency = 0.200
 Container.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -888,8 +889,11 @@ end
 
 
 -- lfp
-local loopflingActive = false
+local flingTextBox = fling
+local loopflingTextBox = loopfling
+local isLoopFlingActive = false
 local loopConnection
+
 
 --[[
 Toggle , Button , Textbox]]
@@ -1005,7 +1009,7 @@ settoggle(LagServer, fccolor16)(function(state)
 end)
 
 setbutton(ClearLoop)(function()
-    loopflingActive = false
+    isLoopFlingActive = false
     if loopConnection then
         loopConnection:Disconnect()
         loopConnection = nil
@@ -1013,43 +1017,44 @@ setbutton(ClearLoop)(function()
     plr.Character.PuttingDown:FireServer()
 end)
 
-settextbox(fling)(function(textbox)
-    local text = textbox.Text
-    local targetPlayer = findplr(text)
-    textbox.Text = "" 
+settextbox(flingTextBox)(function()
+    local input = flingTextBox.Text
+    flingTextBox.Text = ""
 
-    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-        local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local targetPlayer = findplr(input)
+    if not targetPlayer then return end
+
+    local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if targetPart then
         plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
         task.wait(0.1)
-        plr.Character.PuttingDown:FireServer()
-    else
         plr.Character.PuttingDown:FireServer()
     end
 end)
 
-settextbox(loopfling)(function(textbox)
-    local text = textbox.Text
-    local targetPlayer = findplr(text)
-    textbox.Text = "" 
+settextbox(loopflingTextBox)(function()
+    local input = loopflingTextBox.Text
+    loopflingTextBox.Text = ""
+
+    local targetPlayer = findplr(input)
+    if not targetPlayer then return end
 
     if loopConnection then
         loopConnection:Disconnect()
         loopConnection = nil
     end
 
-    if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-          loopflingActive = true
-        loopConnection = game:GetService("RunService").Heartbeat:Connect(function()
-                    if not loopflingActive then return end
-            local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-            if targetPart then
-                plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
-                task.wait(0.1)
-                plr.Character.PuttingDown:FireServer()
-            end
-        end)
-    end
+    isLoopFlingActive = true
+    loopConnection = RunService.Heartbeat:Connect(function()
+        if not isLoopFlingActive then return end
+
+        local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if targetPart then
+            plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
+            task.wait(0.1)
+            plr.Character.PuttingDown:FireServer()
+        end
+    end)
 end)
 
 settextbox(flingv2)(function(text)
