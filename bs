@@ -1019,8 +1019,9 @@ settextbox(flingTextBox)(function()
 
     local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
     if targetPart then
-        plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
-        task.wait(0.1)
+        for i = 1, 5 do
+            plr.Character.Picking:FireServer(targetPart, Vector3.new(1e6, 1e6, 1e6))
+        end
         plr.Character.PuttingDown:FireServer()
     end
 end)
@@ -1043,12 +1044,14 @@ settextbox(loopflingTextBox)(function()
 
         local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
         if targetPart then
-            plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
-            task.wait(0.1)
+            for i = 1, 3 do
+                plr.Character.Picking:FireServer(targetPart, Vector3.new(1e6, 1e6, 1e6))
+            end
             plr.Character.PuttingDown:FireServer()
         end
     end)
 end)
+
 
 setbutton(ClearLoop)(function()
     isLoopFlingActive = false
