@@ -1059,8 +1059,15 @@ setbutton(ClearLoop)(function()
         loopConnection:Disconnect()
         loopConnection = nil
     end
+    isFlingV2Looping = false
+    if flingV2LoopConnection then
+        flingV2LoopConnection:Disconnect()
+        flingV2LoopConnection = nil
+    end
+
     plr.Character.PuttingDown:FireServer()
 end)
+
 
 settextbox(flingv2)(function()
     local input = flingv2.Text
@@ -1069,16 +1076,25 @@ settextbox(flingv2)(function()
     local targetPlayer = findplr(input)
     if not targetPlayer or not targetPlayer.Character then return end
 
-    local armSignal = targetPlayer.Character:FindFirstAncestorOfClass("Model")
-    if armSignal and armSignal:FindFirstChild("ArmAngleChange") then
+    local model = targetPlayer.Character
+    local armch = model:FindFirstChild("ArmAngleChange")
+    if armch then
         if isHiddenV2Active then
-            armSignal.ArmAngleChange:FireServer(CFrame.new(
+            armch:FireServer(CFrame.new(
                 math.random(-99999, 99999),
-                -999,
-                math.random(-99999, 99999)
+                math.random(-99999, 99999),
+                math.random(-99999, 99999),
+                math.random(), math.random(), math.random(),
+                math.random(), math.random(), math.random(),
+                math.random(), math.random(), math.random()
             ))
         else
-            armSignal.ArmAngleChange:FireServer(CFrame.new(math.huge, -999, math.huge))
+            armch:FireServer(CFrame.new(
+                -math.huge, math.huge, -3,
+                0, 0.01, 0.1,
+                0, 0, 0,
+                0, 0, 1
+            ))
         end
     end
 end)
@@ -1099,16 +1115,25 @@ settextbox(loopflingv2)(function()
     flingV2LoopConnection = RunService.Heartbeat:Connect(function()
         if not isFlingV2Looping then return end
 
-        local armSignal = targetPlayer.Character:FindFirstAncestorOfClass("Model")
-        if armSignal and armSignal:FindFirstChild("ArmAngleChange") then
+        local model = targetPlayer.Character
+        local armch = model:FindFirstChild("ArmAngleChange")
+        if armch then
             if isHiddenV2Active then
-                armSignal.ArmAngleChange:FireServer(CFrame.new(
+                armch:FireServer(CFrame.new(
                     math.random(-99999, 99999),
-                    -999,
-                    math.random(-99999, 99999)
+                    math.random(-99999, 99999),
+                    math.random(-99999, 99999),
+                    math.random(), math.random(), math.random(),
+                    math.random(), math.random(), math.random(),
+                    math.random(), math.random(), math.random()
                 ))
             else
-                armSignal.ArmAngleChange:FireServer(CFrame.new(math.huge, -999, math.huge))
+                armch:FireServer(CFrame.new(
+                    -math.huge, math.huge, -3,
+                    0, 0.01, 0.1,
+                    0, 0, 0,
+                    0, 0, 1
+                ))
             end
         end
     end)
