@@ -927,8 +927,10 @@ end
 
 function settextbox(textbox)
     return function(callback)
-        textbox:GetPropertyChangedSignal("Text"):Connect(function()
-            if callback then callback(textbox.Text) end
+        textbox.FocusLost:Connect(function(enterPressed)
+            if enterPressed and callback then
+                callback()
+            end
         end)
     end
 end
@@ -1008,15 +1010,6 @@ settoggle(LagServer, fccolor16)(function(state)
     print("LagServer toggled:", state)
 end)
 
-setbutton(ClearLoop)(function()
-    isLoopFlingActive = false
-    if loopConnection then
-        loopConnection:Disconnect()
-        loopConnection = nil
-    end
-    plr.Character.PuttingDown:FireServer()
-end)
-
 settextbox(flingTextBox)(function()
     local input = flingTextBox.Text
     flingTextBox.Text = ""
@@ -1055,6 +1048,15 @@ settextbox(loopflingTextBox)(function()
             plr.Character.PuttingDown:FireServer()
         end
     end)
+end)
+
+setbutton(ClearLoop)(function()
+    isLoopFlingActive = false
+    if loopConnection then
+        loopConnection:Disconnect()
+        loopConnection = nil
+    end
+    plr.Character.PuttingDown:FireServer()
 end)
 
 settextbox(flingv2)(function(text)
