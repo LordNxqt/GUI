@@ -748,6 +748,79 @@ ToolsB.TextWrapped = true
 
 --[[
 scripts]]
+-- antifling
+
+local antifling = false
+
+local p = game:GetService("Players").LocalPlayer
+local c = p.Character or p.CharacterAdded:Wait()
+
+local function gw(o) return o:FindFirstChild("ConnectedWeld") end
+local function ic(w) return w and w.Part1 and w.Part1:IsDescendantOf(p.Character) end
+local function d(o) 
+    local w = gw(o) 
+    if ic(w) then 
+        o:Destroy() 
+    end 
+end
+
+workspace.DescendantAdded:Connect(function(o)
+    if not antifling then return end
+    if o.Name == "Stabler" then
+        task.spawn(function()
+            if gw(o) or o:WaitForChild("ConnectedWeld", 10) then 
+                d(o) 
+            end
+        end)
+    end
+end)
+
+local function mp(p) return p:IsA("BasePart") and p.Name ~= "HumanoidRootPart" end
+local function mm(p) p.Massless = true end
+local function ma(c) 
+    for _, v in ipairs(c:GetDescendants()) do 
+        if mp(v) then 
+            mm(v) 
+        end 
+    end 
+end
+
+local function ga(c) return c:FindFirstChild("ArmAngleChange") end
+local function cf()
+    return CFrame.new(0.999999583, 0.650959253, 0.0507530943,
+        0.994099438, 0.0974220186, 0.0476996154,
+        -0.0791255683, 0.952069402, -0.295470744,
+        -0.074198693, 0.289953023, 0.954160273)
+end
+local function sa(c) 
+    local e = ga(c) 
+    if e then 
+        e:FireServer(cf()) 
+    end 
+end
+
+local loopActive = false
+
+local function loop()
+    if loopActive then return end
+    loopActive = true
+    while antifling and c and p.Character == c do
+        ma(c)
+        sa(c)
+        task.wait(0.2)
+    end
+    loopActive = false
+end
+
+p.CharacterAdded:Connect(function(nc)
+    c = nc
+    if antifling then
+        task.spawn(loop)
+    end
+end)
+
+
+-- antianvil
 local antianvil = false
 
 RunService.Heartbeat:Connect(function()
@@ -806,8 +879,12 @@ function settextbox(textbox)
 end
 
 settoggle(Antifling, fccolor)(function(state)
-    print("Antifling toggled:", state)
+    antifling = state
+    if antifling then
+        task.spawn(loop)
+    end
 end)
+
 
 settoggle(AntiAnvil, fccolor2)(function(state)
     antianvil = state
