@@ -886,8 +886,9 @@ end
 
 
 
-
-
+-- lfp
+local loopfling = false
+local loopConnection
 --[[
 Toggle , Button , Textbox]]
 
@@ -1010,8 +1011,11 @@ setbutton(ClearLoop)(function()
     plr.Character.PuttingDown:FireServer()
 end)
 
-settextbox(fling)(function(text)
+settextbox(fling)(function(textbox)
+    local text = textbox.Text
     local targetPlayer = findplr(text)
+    textbox.Text = "" 
+
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         local targetPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
         plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
@@ -1022,8 +1026,11 @@ settextbox(fling)(function(text)
     end
 end)
 
-settextbox(loopfling)(function(text)
+settextbox(loopfling)(function(textbox)
+    local text = textbox.Text
     local targetPlayer = findplr(text)
+    textbox.Text = "" 
+
     if loopConnection then
         loopConnection:Disconnect()
         loopConnection = nil
