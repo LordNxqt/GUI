@@ -1415,19 +1415,19 @@ settextbox(loopflingv2)(function()
     table.insert(flingV2LoopConnections, conn)
 end)
 
-settextbox(anvilkill)(function(text)
+settextbox(anvilkill)(function()
     print("anvilkill textbox changed:", text)
 end)
 
-settextbox(orbitheight)(function(text)
+settextbox(orbitheight)(function()
     print("orbitheight changed:", text)
 end)
 
-settextbox(orbitradius)(function(text)
+settextbox(orbitradius)(function()
     print("orbitradius changed:", text)
 end)
 
-settextbox(orbitspeed)(function(text)
+settextbox(orbitspeed)(function()
     print("orbitspeed changed:", text)
 end)
 
