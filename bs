@@ -1194,8 +1194,6 @@ settoggle(AnvilOrbit, fccolor11)(function(state)
     end
 end)
 
-
-
 settoggle(AntiAnvilBreak, fccolor12)(function(state)
     print("AntiAnvilBreak toggled:", state)
 end)
@@ -1327,6 +1325,7 @@ end)
 
 settextbox(anvilkill)(function(text)
     killTarget = text:lower()
+    settext(anvilkill, "")
     if killConnection then
         killConnection:Disconnect()
         killConnection = nil
@@ -1358,6 +1357,7 @@ settextbox(orbitspeed)(function(text)
     if val then
         orbitSpeed = val
     end
+    settext(orbitspeed, "")
 end)
 
 settextbox(orbitradius)(function(text)
@@ -1365,6 +1365,7 @@ settextbox(orbitradius)(function(text)
     if val then
         orbitRadius = val
     end
+    settext(orbitradius, "")
 end)
 
 settextbox(orbitheight)(function(text)
@@ -1372,8 +1373,8 @@ settextbox(orbitheight)(function(text)
     if val then
         headOffset = val
     end
+    settext(orbitheight, "")
 end)
-
 
 
 local allTabs = {Main, Tools, Global, Misc, Keybinds}
