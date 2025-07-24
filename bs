@@ -2,7 +2,7 @@ local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
 local RunService = game:GetService("RunService")
-local prop1000 = PhysicalProperties.new(1000, 1000, 0, 1000, 0)
+local propy = PhysicalProperties.new(1000, 1000, 0, 1000, 0)
 
 local function findplr(text)
     text = text:lower()
@@ -857,24 +857,45 @@ RunService.Heartbeat:Connect(function()
 end)
 
 -- antispinner
+local antispinner = false
 
+RunService.Heartbeat:Connect(function()
+    if antispinner then
+        for _, v in next, plr.Character:GetChildren() do
+            if v:IsA("BasePart") then
+                v.CustomPhysicalProperties = propy
+            end
+        end
+    else
+        for _, v in next, plr.Character:GetDescendants() do
+            pcall(function()
+                if v:IsA("BasePart") then
+                    v.CustomPhysicalProperties = PhysicalProperties.new(0.3, 0.2, 0, 0.2, 0.2)
+                end
+            end)
+        end
+    end
+end)
+
+
+-- fake accs
 local fakeaccs = false
+
 local function applyFakeAccs()
     while fakeaccs do
-        for _, v in ipairs(workspace:GetChildren()) do
-            if v:IsA("Model") and v:FindFirstChild("Humanoid") and plrs:GetPlayerFromCharacter(v) and v ~= plr.Character then
-                for _, x in ipairs(v:GetChildren()) do
-                    if x:IsA("BasePart") then
-                        x.Massless = true
-                    end
-                end
+        for _, v in next, plr.Character:GetChildren() do
+            if v:IsA("Accessory") and v:FindFirstChild("Handle") and v.Name ~= "FakeAcc" then
+                local clone = v:Clone()
+                v:Destroy()
+                clone.Name = "FakeAcc"
+                clone.Parent = plr.Character
             end
         end
 
         if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") and plr.Character:FindFirstChild("Head") then
-            for _, v in ipairs(plr.Character:GetChildren()) do
+            for _, v in next, plr.Character:GetChildren() do
                 if v:IsA("BasePart") then
-                    v.CustomPhysicalProperties = prop1000
+                    v.CustomPhysicalProperties = propy
                 end
             end
         end
@@ -883,19 +904,73 @@ local function applyFakeAccs()
     end
 end
 
+-- antiragdoll
+local antiragdoll = false
 
+RunService.Heartbeat:Connect(function()
+    if not antiragdoll or not plr.Character then return end
+    local char = plr.Character
 
+    pcall(function()
+        if char:FindFirstChild("Ragdoll") and char.Ragdoll.Value then
+            char.GetUpEvent:FireServer()
+        end
+    end)
 
+    for _, v in next, char:GetChildren() do
+        if v.Name == "Stabler" or v.Name == "VelocityDamage" or v.Name == "GetPicked"
+        or v.Name == "ArmAngleUpdate" or v.Name == "ArmAngle" then
+            v:Destroy()
+        end
+    end
+end)
+-- antivoid
+RunService.Heartbeat:Connect(function()
+    if not antivoid or not plr.Character then return end
+    local root = plr.Character:FindFirstChild("HumanoidRootPart")
+    if root and root.Position.Y < -100 then
+        root.Velocity = Vector3.zero
+        root.CFrame = CFrame.new(0, 25, 0)
+    end
+end)
 
+plr.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    if antivoid then
+        workspace.FallenDestroyHeight = 0/0
+    end
+end)
+
+-- fling aura
+local flingAura = false
+
+RunService.Heartbeat:Connect(function()
+    if not flingAura or not plr.Character or not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+
+    local hrp = plr.Character.HumanoidRootPart
+
+    for _, v in ipairs(game.Players:GetPlayers()) do
+        if v ~= plr and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            local otherHRP = v.Character.HumanoidRootPart
+            if (hrp.Position - otherHRP.Position).Magnitude < 10 then
+                pcall(function()
+                    plr.Character.Picking:FireServer(otherHRP, Vector3.new(math.huge, -math.huge, math.huge))
+                    task.wait(0.1)
+                    plr.Character.PuttingDown:FireServer()
+                end)
+            end
+        end
+    end
+end)
 
 -- lfp
 local flingTextBox = fling
 local loopflingTextBox = loopfling
 local isLoopFlingActive = false
-local loopConnection
+local loopConnections = {}   
 -- lfp v2
 local isFlingV2Looping = false
-local flingV2LoopConnection
+local flingV2LoopConnections = {}  
 local isHiddenV2Active = false
 
 --[[
@@ -958,23 +1033,42 @@ settoggle(FakeAccs, fccolor3)(function(state)
 end)
 
 settoggle(AntiSpinner, fccolor4)(function(state)
-    print("AntiSpinner toggled:", state)
+    antispinner = state
 end)
 
 settoggle(AntiRagdoll, fccolor5)(function(state)
-    print("AntiRagdoll toggled:", state)
+    antiragdoll = state
 end)
 
 setbutton(HackMovement)(function()
     print("HackMovement clicked")
 end)
 
+setbutton(ClearLoop)(function()
+    for _, conn in ipairs(loopConnections) do
+        if conn then conn:Disconnect() end
+    end
+    loopConnections = {}
+
+    for _, conn in ipairs(flingV2LoopConnections) do
+        if conn then conn:Disconnect() end
+    end
+    flingV2LoopConnections = {}
+
+    plr.Character.PuttingDown:FireServer()
+end)
+
+
 settoggle(AntiVoid, fccolor7)(function(state)
-    print("AntiVoid toggled:", state)
+    antivoid = state
+    workspace.FallenDestroyHeight = antivoid and 0/0 or -500
 end)
 
 settoggle(FlingAura, fccolor8)(function(state)
-    print("FlingAura toggled:", state)
+    flingAura = state
+    if not state and plr.Character and plr.Character:FindFirstChild("Picked") and plr.Character.Picked.Value then
+        plr.Character.PuttingDown:FireServer()
+    end
 end)
 
 settoggle(AutoRespawn, fccolor9)(function(state)
@@ -1013,19 +1107,24 @@ settoggle(LagServer, fccolor16)(function(state)
     print("LagServer toggled:", state)
 end)
 
-settextbox(flingTextBox)(function()
-    local input = flingTextBox.Text
-    flingTextBox.Text = ""
+settextbox(loopflingTextBox)(function()
+    local input = loopflingTextBox.Text
+    loopflingTextBox.Text = ""
 
     local targetPlayer = findplr(input)
-    if not targetPlayer then return end
+    if not targetPlayer or not targetPlayer.Character then return end
 
-    local targetPart = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
-    if targetPart then
-        plr.Character.Picking:FireServer(targetPart, Vector3.new(math.huge, -math.huge, math.huge))
-        task.wait(0.1)
-        plr.Character.PuttingDown:FireServer()
-    end
+    local conn = RunService.Heartbeat:Connect(function()
+        local hrp = targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if hrp then
+            for i = 1, 4 do
+                plr.Character.Picking:FireServer(hrp, Vector3.new(math.huge, math.huge, math.huge))
+            end
+            plr.Character.PuttingDown:FireServer()
+        end
+    end)
+
+    table.insert(loopConnections, conn)
 end)
 
 settextbox(loopflingTextBox)(function()
@@ -1053,22 +1152,6 @@ settextbox(loopflingTextBox)(function()
     end)
 end)
 
-setbutton(ClearLoop)(function()
-    isLoopFlingActive = false
-    if loopConnection then
-        loopConnection:Disconnect()
-        loopConnection = nil
-    end
-    isFlingV2Looping = false
-    if flingV2LoopConnection then
-        flingV2LoopConnection:Disconnect()
-        flingV2LoopConnection = nil
-    end
-
-    plr.Character.PuttingDown:FireServer()
-end)
-
-
 settextbox(flingv2)(function()
     local input = flingv2.Text
     flingv2.Text = ""
@@ -1081,9 +1164,9 @@ settextbox(flingv2)(function()
     if armch then
         if isHiddenV2Active then
             armch:FireServer(CFrame.new(
-                math.random(-99999, 99999),
-                math.random(-99999, 99999),
-                math.random(-99999, 99999),
+                math.random(-999, 99999),
+                math.random(-999, 99999),
+                math.random(-900, 99999),
                 math.random(), math.random(), math.random(),
                 math.random(), math.random(), math.random(),
                 math.random(), math.random(), math.random()
@@ -1106,23 +1189,15 @@ settextbox(loopflingv2)(function()
     local targetPlayer = findplr(input)
     if not targetPlayer or not targetPlayer.Character then return end
 
-    if flingV2LoopConnection then
-        flingV2LoopConnection:Disconnect()
-        flingV2LoopConnection = nil
-    end
-
-    isFlingV2Looping = true
-    flingV2LoopConnection = RunService.Heartbeat:Connect(function()
-        if not isFlingV2Looping then return end
-
+    local conn = RunService.Heartbeat:Connect(function()
         local model = targetPlayer.Character
         local armch = model:FindFirstChild("ArmAngleChange")
         if armch then
             if isHiddenV2Active then
                 armch:FireServer(CFrame.new(
-                    math.random(-99999, 99999),
-                    math.random(-99999, 99999),
-                    math.random(-99999, 99999),
+                    math.random(-999, 99999),
+                    math.random(-999, 99999),
+                    math.random(-999, 99999),
                     math.random(), math.random(), math.random(),
                     math.random(), math.random(), math.random(),
                     math.random(), math.random(), math.random()
@@ -1137,6 +1212,8 @@ settextbox(loopflingv2)(function()
             end
         end
     end)
+
+    table.insert(flingV2LoopConnections, conn)
 end)
 
 settextbox(anvilkill)(function(text)
@@ -1154,6 +1231,8 @@ end)
 settextbox(orbitspeed)(function(text)
     print("orbitspeed changed:", text)
 end)
+
+
 
 
 local allTabs = {Main, Tools, Global, Misc, Keybinds}
