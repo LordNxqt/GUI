@@ -1,4 +1,3 @@
-
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
@@ -967,6 +966,15 @@ local isFlingV2Looping = false
 local flingV2LoopConnections = {}  
 local isHiddenV2Active = false
 
+-- anvil orb
+local anvilorb = false
+local orbitRadius = 3.4
+local orbitSpeed = 2.2
+local headOffset = 1.6
+local killTarget = nil
+local orbitConnection = nil
+local killConnection = nil
+
 --[[
 Toggle , Button , Textbox]]
 
@@ -1077,9 +1085,116 @@ settoggle(AntiVelocity, fccolor1)(function(state)
     print("AntiVelocity toggled:", state)
 end)
 
+
 settoggle(AnvilOrbit, fccolor11)(function(state)
     print("AnvilOrbit toggled:", state)
+    anvilorb = state
+
+    local targetPlayer = game.Players.LocalPlayer
+    local character = targetPlayer.Character or targetPlayer.CharacterAdded:Wait()
+    local head = character:WaitForChild("Head")
+    local anvils = {}
+    game.Workspace.FallenPartsDestroyHeight = 0/0
+    local standardVelocity = -9e37
+    local orbiting = false
+
+    local function rsanvil(anvil)
+        anvil.Velocity = Vector3.zero
+        anvil.CanCollide = true
+        anvil.Anchored = false
+        anvil.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5)
+    end
+
+    local function addanv(anvil)
+        table.insert(anvils, anvil)
+        anvil.Parent = workspace
+        anvil.Anchored = false
+        if orbiting then
+            anvil.CanCollide = false
+            anvil.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0, 0, 0)
+            anvil.Velocity = (anvil.Position - head.Position).unit * standardVelocity
+        else
+            rsanvil(anvil)
+        end
+    end
+
+    local function fav()
+        anvils = {}
+        for _, v in pairs(workspace:GetChildren()) do
+            if v:IsA("BasePart") and v.Name == 'Anvil' and v:FindFirstChild('Script') and v.Script:FindFirstChild('Value') and v.Script.Value.Value == targetPlayer then
+                addanv(v)
+            end
+        end
+    end
+
+    local function Upapt()
+        if not orbiting or #anvils == 0 then return end
+        local currentTime = tick() * orbitSpeed
+        local phaseShift = (2 * math.pi) / #anvils
+        for i, anvil in ipairs(anvils) do
+            local time = currentTime + (i - 1) * phaseShift
+            local offsetX = math.cos(time) * orbitRadius
+            local offsetZ = math.sin(time) * orbitRadius
+            local targetPosition = head.Position + Vector3.new(offsetX, headOffset, offsetZ)
+            anvil.Position = targetPosition
+            anvil.CFrame = CFrame.new(anvil.Position, head.Position)
+            anvil.Velocity = (anvil.Position - head.Position).unit * standardVelocity
+        end
+    end
+
+    local function enborb()
+        orbiting = true
+        fav()
+        if not orbitConnection then
+            orbitConnection = game:GetService("RunService").Heartbeat:Connect(Upapt)
+        end
+    end
+
+    local function disorb()
+        orbiting = false
+        if orbitConnection then
+            orbitConnection:Disconnect()
+            orbitConnection = nil
+        end
+        for _, anvil in ipairs(anvils) do
+            rsanvil(anvil)
+        end
+        anvils = {}
+    end
+
+    local function charadd(newCharacter)
+        character = newCharacter
+        head = newCharacter:WaitForChild("Head")
+        fav()
+    end
+
+    targetPlayer.CharacterAdded:Connect(charadd)
+
+    local function childadd(child)
+        if child:IsA("BasePart") and child.Name == "Anvil" then
+            addanv(child)
+        end
+    end
+
+    workspace.ChildAdded:Connect(childadd)
+
+    coroutine.wrap(function()
+        while true do
+            if orbiting then
+                fav()
+            end
+            task.wait()
+        end
+    end)()
+
+    if state then
+        enborb()
+    else
+        disorb()
+    end
 end)
+
+
 
 settoggle(AntiAnvilBreak, fccolor12)(function(state)
     print("AntiAnvilBreak toggled:", state)
@@ -1211,21 +1326,53 @@ settextbox(loopflingv2)(function()
 end)
 
 settextbox(anvilkill)(function(text)
-    print("anvilkill textbox changed:", text)
-end)
+    killTarget = text:lower()
+    if killConnection then
+        killConnection:Disconnect()
+        killConnection = nil
+    end
 
-settextbox(orbitheight)(function(text)
-    print("orbitheight changed:", text)
-end)
-
-settextbox(orbitradius)(function(text)
-    print("orbitradius changed:", text)
+    killConnection = game:GetService("RunService").Heartbeat:Connect(function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+            if player ~= game.Players.LocalPlayer then
+                local name = player.Name:lower()
+                local displayName = player.DisplayName:lower()
+                if name:find(killTarget) or displayName:find(killTarget) then
+                    local char = player.Character
+                    if char and char:FindFirstChild("Torso") then
+                        for _, v in pairs(workspace:GetChildren()) do
+                            if v:IsA("BasePart") and v.Name == "Anvil" and v:FindFirstChild('Script') and v.Script:FindFirstChild('Value') and v.Script.Value.Value == game.Players.LocalPlayer then
+                                v.Position = char.Torso.Position
+                                v.CFrame = CFrame.new(v.Position)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end)
 end)
 
 settextbox(orbitspeed)(function(text)
-    print("orbitspeed changed:", text)
+    local val = tonumber(text)
+    if val then
+        orbitSpeed = val
+    end
 end)
 
+settextbox(orbitradius)(function(text)
+    local val = tonumber(text)
+    if val then
+        orbitRadius = val
+    end
+end)
+
+settextbox(orbitheight)(function(text)
+    local val = tonumber(text)
+    if val then
+        headOffset = val
+    end
+end)
 
 
 
