@@ -1809,7 +1809,7 @@ end)
 
 local anvilKillConnection
 
-textbox(anvilkill)(function()
+connectTextboxInput(anvilkill, function()
     local input = anvilkill.Text
     anvilkill.Text = ""
 
@@ -1833,7 +1833,7 @@ textbox(anvilkill)(function()
     end)
 end)
 
-textbox(orbitheight)(function()
+connectTextboxInput(orbitheight, function()
     local input = tonumber(orbitheight.Text)
     if input then
         headoffset = input
@@ -1841,7 +1841,7 @@ textbox(orbitheight)(function()
     orbitheight.Text = ""
 end)
 
-textbox(orbitradius)(function()
+connectTextboxInput(orbitradius, function()
     local input = tonumber(orbitradius.Text)
     if input then
         orbitrad = input
@@ -1849,11 +1849,10 @@ textbox(orbitradius)(function()
     orbitradius.Text = ""
 end)
 
-textbox(orbitspeed)(function()
+connectTextboxInput(orbitspeed, function()
     local input = tonumber(orbitspeed.Text)
     if input then
         orbitspeed = input
     end
     orbitspeed.Text = ""
 end)
-
