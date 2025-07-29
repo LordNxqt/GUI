@@ -5,8 +5,7 @@ local vim = game:GetService("VirtualInputManager")
 local mouse = plr:GetMouse()
 local RunService = game:GetService("RunService")
 local propy = PhysicalProperties.new(1000, 1000, 0, 1000, 0)
-local tps = game:GetService("TeleportService")
-local htsp = game:GetService("HttpService")
+
 
 local function findplr(text)
     text = text:lower()
@@ -1669,19 +1668,6 @@ button(KeybindsB)(function()
     openTab(Keybinds)
 end)
 
-button(ReJoin)(function()
-    tps:Teleport(game.PlaceId, plr)
-end)
-
-button(ServerHop)(function()
-    local servers = htsp:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
-    for _, v in pairs(servers.data) do
-        if v.playing < v.maxPlayers and v.id ~= game.JobId then
-            tps:TeleportToPlaceInstance(game.PlaceId, v.id, plr)
-            break
-        end
-    end
-end)
 
 button(GlobalB)(function()
     openTab(Global)
