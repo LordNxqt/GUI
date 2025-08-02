@@ -1,1 +1,595 @@
-([[This file was protected with MoonSec V3]]):gsub('.+', (function(a) _mcDtQfbjDZBT = a; end)); return(function(t,...)local h;local d;local m;local s;local o;local l;local e=24915;local n=0;local f={};while n<457 do n=n+1;while n<0x2da and e%0x1d06<0xe83 do n=n+1 e=(e+359)%38427 local j=n+e if(e%0x1d40)>0xea0 then e=(e*0xcf)%0x529b while n<0x12f and e%0x4404<0x2202 do n=n+1 e=(e-90)%47819 local s=n+e if(e%0x1ab0)>0xd58 then e=(e-0x2bf)%0x9a27 local e=55553 if not f[e]then f[e]=0x1 o=tonumber;end elseif e%2~=0 then e=(e*0x169)%0x3bdf local e=44466 if not f[e]then f[e]=0x1 h=(not h)and _ENV or h;end else e=(e-0x383)%0x4959 n=n+1 local e=72871 if not f[e]then f[e]=0x1 m="\4\8\116\111\110\117\109\98\101\114\119\98\105\73\113\120\107\121\0\6\115\116\114\105\110\103\4\99\104\97\114\110\65\120\89\69\95\70\82\0\6\115\116\114\105\110\103\3\115\117\98\75\69\109\90\102\110\69\122\0\6\115\116\114\105\110\103\4\98\121\116\101\65\122\110\116\69\67\79\90\0\5\116\97\98\108\101\6\99\111\110\99\97\116\95\86\117\100\87\87\73\86\0\5\116\97\98\108\101\6\105\110\115\101\114\116\83\106\74\73\87\87\97\100\5";end end end elseif e%2~=0 then e=(e+0xbc)%0xc289 while n<0x1f9 and e%0x31ea<0x18f5 do n=n+1 e=(e*974)%14083 local m=n+e if(e%0x1fe6)>0xff3 then e=(e+0x1a5)%0x9d55 local e=28888 if not f[e]then f[e]=0x1 end elseif e%2~=0 then e=(e*0xec)%0x8fe8 local e=1781 if not f[e]then f[e]=0x1 end else e=(e*0x3fd)%0x632c n=n+1 local e=24083 if not f[e]then f[e]=0x1 s=function(f)local e=0x01 local function n(n)e=e+n return f:sub(e-n,e-0x01)end while true do local f=n(0x01)if(f=="\5")then break end local e=d.byte(n(0x01))local e=n(e)if f=="\2"then e=l.wbiIqxky(e)elseif f=="\3"then e=e~="\0"elseif f=="\6"then h[e]=function(n,e)return t(8,nil,t,e,n)end elseif f=="\4"then e=h[e]elseif f=="\0"then e=h[e][n(d.byte(n(0x01)))];end local n=n(0x08)l[n]=e end end end end end else e=(e+0x27e)%0x5ed8 n=n+1 while n<0x228 and e%0x3c66<0x1e33 do n=n+1 e=(e+20)%35336 local s=n+e if(e%0x8ca)<=0x465 then e=(e*0x3ff)%0x73ca local e=82038 if not f[e]then f[e]=0x1 d=string;end elseif e%2~=0 then e=(e+0x3e1)%0x46a7 local e=56964 if not f[e]then f[e]=0x1 h=getfenv and getfenv();end else e=(e-0x383)%0x748c n=n+1 local e=71434 if not f[e]then f[e]=0x1 l={};end end end end end e=(e-422)%21541 end s(m);local n={};for e=0x0,0xff do local f=l.nAxYE_FR(e);n[e]=f;n[f]=e;end local function j(e)return n[e];end local d=(function(d,s)local m,f=0x01,0x10 local n={{},{},{}}local h=-0x01 local e=0x01 local t=d while true do n[0x03][l.KEmZfnEz(s,e,(function()e=m+e return e-0x01 end)())]=(function()h=h+0x01 return h end)()if h==(0x0f)then h=""f=0x000 break end end local h=#s while e<h+0x01 do n[0x02][f]=l.KEmZfnEz(s,e,(function()e=m+e return e-0x01 end)())f=f+0x01 if f%0x02==0x00 then f=0x00 l.SjJIWWad(n[0x01],(j((((n[0x03][n[0x02][0x00]]or 0x00)*0x10)+(n[0x03][n[0x02][0x01]]or 0x00)+t)%0x100)));t=d+t;end end return l._VudWWIV(n[0x01])end);s(d(213,"qYHG*2X./bdU%{m>Gk"));s(d(38,"vXtg2m^od{HL );-)HLHxX) L2dm^2goH;;d)gHmdtm{z x2)tHH{oommH Z{L;4H)dm^H22OL;2LXH^dm2Xtttxdg^XH^dtmggtXt;{{odXm^t)tt;m -2dtd^-2Htt-g)tHmX)m-t)XH;g tHm^2gHt-);LoH-omr2;ttm-g;MH;tm^^gdXg/T)tH;o m{gXQo-XL)o;XY-tgg--;dLLd)o^g)tH-X  L}dg2 tmtm);Hoo-oH2t  H{)tLL{go;mggA L ^{;o8mm2)t2;-L{2^tj^)gXXg-d)XHH^XmgGonL;;{dgrl{XLtd) L{H{^{otmX-H{D^;L2d{^o2tXH;L H{)^ggggmxd)XH^odo^;KL-9d -HHd;^X) tm-d)2{-oLm)g{;o;mLgHLommoNdHAo  m{do2g-XL-));LXdooXgdXo.0 o2jXL^Cg Q);   {do;m^9)) ; LHd)#^;tt{-m)^H{dX^ 2t-o-d  dLoLmtgdHtdl g{Xo;2  g-;);LL{motg.Km)m)r{od2^LXgH-"));local e=(-10785+(function()local h,n=0,1;(function(e,n)e(e(e,n),n(e,e))end)(function(f,e)if h>218 then return e end h=h+1 n=(n+25)%32157 if(n%1360)<680 then n=(n-774)%46159 return f else return e(e(f,f),e(e and f,e))end return f(f(e,f),f(e,e))end,function(f,e)if h>457 then return e end h=h+1 n=(n-990)%14923 if(n%1356)>=678 then return e(e(f,f)and e(f,f and e),e(f,e)and e(e,e))else return f end return f end)return n;end)())local _=(getfenv)or(function()return _ENV end);local u=l.rkgwdixe or l.mAeYwgoF;local h=2;local ee=1;local j=4;local s=3;local function k(c,...)local y=d(e,"/h6xj!(sfmy1v- #vssyxs#j1js161 fy!vhfvx#--vy(jx( #1jj1h vxm6# =ys-x6 #1(-!m!j(+hvmxyj#-#vmjs:6u6mh(#gi1 (v!y<x hyxx h!-ssmj##6-h(1js j1hj#xz#8f#! 6v-)mvxj x1-f hm#vvfs6x1A!fm!!hj1111j 6-v6fxj# !v,my!vhvmf(Mjs# vssvc -f1xs#h1 y1js!6!-vm1h1-61-m(jfh-v(m3j 1ys s x  #yys6 x yf-j(6-v!y!!sq6-!mjx1-6m s S( 1yxf!h# -fy(j#s#h( jxhxy(sw!y  y s6!( x1#fsh( fm-jv#-#myh(s y1myh!s#y-(yh!m#!mx(y66lsf#6#jj-j1 xv#s#sf((j#!1x(hj##f-(mfxxEyvv( jj sv((2xv-my(jj6! !fj!x6hv!mh6m-f16fx* #h1-(sx^#ys jyIm1a1Gjx661ssfjj-y1!f#!hhhf-j(6h,h16(-x!-(y#(hx(-#ymhj6f-(mj!joyf6mxj t 11xxxj#v(y(-xx#x! !y jvjfm(W6h 6mhh1 6yy(-x- 6fff?xs# m xs6-v6(mx16x1ymy(6#4y1shxj#;v#!(h!#6mf!hhfvss6sh6jv1ys(ou( !!1h #vvjfj6j#y1!sh# #h(s(-6#m y1!mh  jy6hj6h1hm1hm-j-j(xjh-6m{x 6v-!1xs!hF symj16hvjyxx-hm1(fx6h?6v6(hx,# y6( 2(1!f#(l 1v myjj9--s!16s (f-f-6l##mj!!6h1sm6(v6   (y6##m-jyPxmh6vjmmj63vvyxv#y1sy#ss ! 1y!hvMfv-yj(!6(-!!#6(  1hfh6(vvvjs1j6 6s1shr(y-s#(s# - y(xj #1!sfxjhxmy!mx(-vm!!vZ11(1!(f+# 1yjjy6mm#(6j_Ufvf(fx #m1!j6x!0mf!(#h6v116jy6y-vfs!yhmvo!s6x_xf1sp6f,yyjs60# msvs(#xvfmf61#!-#sxxx#s-1(fjjOvm1(-66-hf6s 6( v(#x 6(-vs#!16(- syhf #ysfv#s#!1#s6 1-smvsxxj#!yj6 #!1-f*!V#!m1mxjyhh1hjyjl-!svj x(v-y-s!Nx1 fjjsex 6(m6fB!y1(j61-yf!fjxs- 1ysxhm#f( xh7#-smsxsF-vffjhh:jff!yxv#6vL(v61#myssh-v -m !fh f-m(!(esv6fy#1##m-fvq!-fy#! 6-#xs sxhh !f(x--11#mK!m-(y6jvxm=hvf!-h!--1ysxtv #s-! p!16sm66#f1smr> -vv(sfxm#1s-!66yv(yhj!Ag 6(s6!# fy(jYj#G1!fvj-E 1-jsa -(mm(mR 1jyv(x6yvy(x!m  m!(sj# (v(f hv-sm-(Rhv#1f6jhh vjs-jj#xm m-!>#s-xfvx6hhfsjy6f#_1&!l6( hm-6yh-yhsj!(h--sm:j6hsymsmj6#sfmsfxf#-yfs6 !yx!s!-hsf mm!shmfyf(6jhxfv!#x( !1jsyo!#ymf(v{-vj(6j(hs 8!-6m-xv*ffj# jmv(jjh#ymxs(gj !fvxm^Lyms#x hsm!(xj-##v.f6Jj-m1hj-6fvvfs(m  yvf!616h TfyT--xf1!6?6-xmZx66##(yf(f6( 6!-hf6j jj#!x#h O!m6vXx16fhjs-6vs(!xm-ymh6#hx jy-6y#(yof-!!hv1h(mxhD vs()jx-h16!m;(v-s(jvG1 j(6xzhyvvf-j#-hy(s hy#!mm!jx(11sm!6#f  y-!s-yyc!f6hv#yM!-##h61mf3x6#61a(v sy1!#sg6h-1yhh<hm-mfyj!d-s m!jxv(mfx#hs#sm!xfh(-hs (x6svy(hj6hM-((sjj jvxf1^v yv(jhhh1(1xj1zm1#(-jyhh ?mmjs !ymfhx--yysfsN#Kxm-s6xv-hyx!#>s1#!o6yvy1(s1!6hx-jfxY--jmv!#6#-jsys66m#:m}6mh#1j!16-h!yvfv!j 6m-(x6( 6vhjfUs jfyjxZy1m(j(xh(1-mm!6#f-sj-h:  1(s(h( vys(x#8 x(sxmh1-hm#j1=y-ff(!2-!m s j&#xm6s6xf#(1jj?66 %y?!!-(f-si!yz#v>fyjf##1s(6xv#m11!j66#)y#hy- m6m1!1Cvvsf#X*r 15f(j1-jvhfj66vmy-((Gvyyf;6f6ym-ssjv#f1m(vhh#1myj1xh#(1hs6#1vvy-(fhf msy(6#x- sv!h#jy mh6hv(1(s#)vv fyxf66y-f1! #xf#(momho1x(v!x 1v1s-6f#11y(h#fvjyj6vhhvmy1j!hx1?fyh-hsmj(mxmvvm(f9hj-jmfsvCm !y-xv3 vxs66xh#vsf-hq-#vss-6H#vvss#h11mmTjf6-y(sf!yh^- fyjmhsv!f##yA<1yxhjf#(smj1#6vyyyjf 1vmfjxhh(-ys-hj#!vxfmhy#smss(x 1#m-sm#jvj(m((# 1vs66L#-vjmxjv#ymf!vxj#<f-!yxyv61(!c6! #fj!(h61ys6lx*hv1s #s2!yss-j6v11fs1hmvIyj!-Lxyhssh#6hmj( jx #1q(xKf#6mhj66f -yf(m#6vxyj!#K# Ush!m y-!sxjf 1y!ffhf1-y-s(Wxv!fh6#hmyjf6!! yf(msjf<6vfxsj4_41h(vxjy!1!(v## mf66jh6-h(xxm4my6f-Q-  fy!16j#svW!hh{1Sy!s6R#y1s#(f#x-y!m!x_!yzfxh1 sv(jx6h fm-j16y-!m#jf !1(m#6h f-h((!h 1vvxjM y 1v! xj#mf6(#x6-bss!1hj1y!f6 -(-fj16!#yy((shy1#ymjf#m-#yj!#6^ymsy!1h(v(ms6fhZyhfv6y##y6!vx#v#sj(j6-1ysvxf (-p!1xmzvyh!s6RC;v6s!hj#j1ysfx(v6yj(666-s!fa##y-Mfsjvzsvms##s11(#sfxf myj(v-- #fh(x6mvAmxx1h!v!!g6--1f#fmh# !mx( x4#yy#!j6x1(mv6(-vv-sv!(hyy!f 8--ym!(fhs -mvsjIv-x(1(xh!1ys-66 y16s!hxNhyx(yjV-j(vj( (#jm((vxh1yys(yVfy#mxjv#6ma((N hMfx!-x6- m#!6#s hf;xhhs-vms!f h16mxj # v#(ljf-mvj(6xs-ymjssLsyvmv(!#61jsQh Wfmxshjj-mf#!fxf#yy-jv6v#61p( #y-vmy!y3#m{jsx6hj-Pf-x#Fh1s!hxm# 166x sm1yh!1-6 6mm6vh(y#!hx## m>((x(v#1yxyh11sff!h6j -s x----6m#xv-fyvm!6eCsf(fVx6v-1*jfhj#xs*j h!vysf!so6vvs!h6 xvvj h!# mxs hf#m(h!#6m-v!!(s#m-1yhxf911xf-x-vfy!!x^sEhms!-A1 (yfs66svvm16 hjm !jj!#jv m6h-a(f!!6K- Ef#(!hj vfjj1 x-1f-x6#!my(66y -f1smh1 61fjv j#!y((^6(m!y!!v #-ms6hjc6vh!x6m#mm6s-#-- syj1hj s1djhR}yMm!(6##m1(#!f xvyjmjx#!m5sx21-s1(xxhh-ff-x1hyv!f#xf-!y(f#hh-fvh!(jh-11vx 2s sy-!-Df-syh(6+ -fj1!yWff1!-Bj-v1v!y#--1m(jx6f vf#6(<s-!m16v3mymff!Y-hy#f1.(-(s1sfhWv fjx6p#-(y!! Mvyy( j(N6m#(vjv-jvf(6xswhm((f6jvvfj6hQf-jf#!-h!-!!xW1Df1vf1#m#1yvsv6-1=yssh6U-1!#h-hyv1m1jvv#v(mFx##ys sv6-#-y xh6f#6yh!v--myy6jvh1-L!a!(#-v6fy#1v9s1xy#vy#y !#6# C(x(jhB-yf-!!hqffj(Djvsf6jh##1j(fsy5v  1jj1h v(y<!D-11f((hyhjyys0h #m11f!xy-#y jh6s1h(s!f^s hy!xLhmmf(!6{#xy6sf6s##ms! #(  yqj!5fy-s!x-}Im fv6 #!v1!#hh-y1yfrxd-1yysjx! hy1h -vm5m6!fc1fjf(jv##sfsyjY#x(v( xj s(p(66f-1!j!(hvv#jf!m7x-6fs%sV-1jsmjh16ssx6#6ymyf!m6m-y!-! Ay-jfsj#,yf6j{# vhsvx1#-y ys(-6&fxxm#-14(-6y!xhxv6f6j kvvss1x-#xjvh#vxfIx-js6( xm#jhhOv1fjx!hxv f6jj#yvx!!xx 1yf((6v1vyv(m6js6!x my((xsjj!Nxvyxjxs#s1s(- !#myP(#-m (y!!#6hv#fy!fq(v6x1j## v(ss v-(1!s66 -Vm#!y-jvs(h  y-(!66-#Fhv1ffj6z6!:hmvsfjjh(m6P#h!!!sh- 6jm!xbv-xmQjxU!11hj-!f1jfi!6m j1%!#h1 hy(#2y-(s6j hamvOmh-fmjj#wvvm !fyh-1-syxs#j-h( 61 fy((6h#-vy1(fhx-Cf-j tsvjfh!Lh(1fs!x6#uyv(m6(=myy!-hy-smy!h_#v1f-j!D(v6svxm#(1ms{6  yy1(s6h- m1!#h!-xf#jvTyv(fxj:# 1yssxj8xv6(16f !y1!#hv-myf!-h3v fyj#+jvhs jhhh1!sx6##1ym(s6x ,m-! hy-jmhj hyvff(j6hhvssmxs#x1f(-6y syjsfh -vmf!(h6-hfvj#Pfvxfhx-4y1ss!xh #y1(v6f 6m#!v6m-(mj!Rh#-!fsj!Ehvfs1xf#!16sh6v 1y((j6J--my!-hy-hm^j1hvv!fxx##v1msyx(#^y-(yx1 jy6! h#-1m!!6G# xfmjs,x-6ffxy#m1jss6  1yfssx1-#m#!mh--xm8j-&y 6fjjx# 1-sfxs#6vhf96m myx(6h--yms((6-v f#jf_fv6s#xv#mv-sxx! -y-(s6j hm (vhf-mm6!hDvv1f(jxhj1-s xs#!1h(#61 f1m(6h#-vmy!(hx-Ff-jy*svjfh");local n=0;l.YXKfkMTx(function()l.srOgAktD()n=n+1 end)local function e(f,e)if e then return n end;n=f+n;end local f,n,m=t(0,t,e,y,l.AzntECOZ);local function d()local n,f=l.AzntECOZ(y,e(1,3),e(5,6)+2);e(2);return(f*256)+n;end;local r=true;local r=0 local function k()local h=n();local e=n();local s=1;local h=(f(e,1,20)*(2^32))+h;local n=f(e,21,31);local e=((-1)^f(e,32));if(n==0)then if(h==r)then return e*0;else n=1;s=0;end;elseif(n==2047)then return(h==0)and(e*(1/0))or(e*(0/0));end;return l.rfigcseL(e,n-1023)*(s+(h/(2^52)));end;local a=n;local function b(n)local f;if(not n)then n=a();if(n==0)then return'';end;end;f=l.KEmZfnEz(y,e(1,3),e(5,6)+n-1);e(n)local e=""for n=(1+r),#f do e=e..l.KEmZfnEz(f,n,n)end return e;end;local z=#l.SIqjYTLp(o('\49.\48'))~=1 local e=n;local function p(...)return{...},l.pKrlQgdp('#',...)end local function g()local r={};local e={};local o={};local a={o,r,nil,e};local e=n()local y={}for h=1,e do local f=m();local e;if(f==1)then e=(m()~=#{});elseif(f==0)then local n=k();if z and l.qVRmBA_K(l.SIqjYTLp(n),'.(\48+)$')then n=l.VQGhUhuC(n);end e=n;elseif(f==3)then e=b();end;y[h]=e;end;for r=1,n()do local e=m();if(f(e,1,1)==0)then local t=f(e,2,3);local l=f(e,4,6);local e={d(),d(),nil,nil};if(t==0)then e[s]=d();e[j]=d();elseif(t==#{1})then e[s]=n();elseif(t==c[2])then e[s]=n()-(2^16)elseif(t==c[3])then e[s]=n()-(2^16)e[j]=d();end;if(f(l,1,1)==1)then e[h]=y[e[h]]end if(f(l,2,2)==1)then e[s]=y[e[s]]end if(f(l,3,3)==1)then e[j]=y[e[j]]end o[r]=e;end end;a[3]=m();for e=1,n()do r[e-(#{1})]=g();end;return a;end;local function b(f,n,e)local h=n;local h=e;return o(l.qVRmBA_K(l.qVRmBA_K(({l.YXKfkMTx(f)})[2],n),e))end local function k(a,e,m)local function g(...)local d,u,o,g,b,n,k,c,y,r,_,f;local e=0;while-1<e do if e>=3 then if 5<=e then if 3~=e then for n=16,68 do if e~=5 then e=-2;break;end;f=t(7);break;end;else f=t(7);end else if e>-1 then for n=41,54 do if 3<e then r=l.pKrlQgdp('#',...)-1;_={};break;end;c={};y={...};break;end;else c={};y={...};end end else if 0>=e then d=t(6,60,1,25,a);u=t(6,32,2,17,a);else if 1==e then o=t(6,63,3,23,a);b=p g=0;else n=-41;k=-1;end end end e=e+1;end;for e=0,r do if(e>=o)then c[e-o]=y[e+1];else f[e]=y[e+1];end;end;local e=r-o+1 local e;local t;local function l(...)while true do end end while true do if n<-40 then n=n+42 end e=d[n];t=e[ee];if t>15 then if t>23 then if t>27 then if 29>=t then if t~=27 then for l=34,65 do if 29~=t then local t;f[e[h]]=m[e[s]];n=n+1;e=d[n];f[e[h]]=f[e[s]];n=n+1;e=d[n];t=e[h]f[t]=f[t](f[t+1])n=n+1;e=d[n];f[e[h]]();n=n+1;e=d[n];do return end;break;end;local e=e[h]f[e]=f[e]()break;end;else local t;f[e[h]]=m[e[s]];n=n+1;e=d[n];f[e[h]]=f[e[s]];n=n+1;e=d[n];t=e[h]f[t]=f[t](f[t+1])n=n+1;e=d[n];f[e[h]]();n=n+1;e=d[n];do return end;end else if 31>t then if(f[e[h]]==e[j])then n=n+1;else n=e[s];end;else if 32==t then for t=0,3 do if t<2 then if-1<=t then for l=26,79 do if 0<t then m[e[s]]=f[e[h]];n=n+1;e=d[n];break;end;f[e[h]]=(e[s]~=0);n=n+1;e=d[n];break;end;else m[e[s]]=f[e[h]];n=n+1;e=d[n];end else if-2<=t then for l=43,66 do if t>2 then if(f[e[h]]==e[j])then n=n+1;else n=e[s];end;break;end;f[e[h]]=m[e[s]];n=n+1;e=d[n];break;end;else f[e[h]]=m[e[s]];n=n+1;e=d[n];end end end else if not f[e[h]]then n=n+1;else n=e[s];end;end end end else if t<26 then if 25>t then f[e[h]]=f[e[s]];else local t;for l=0,1 do if l~=-1 then repeat if 1~=l then f(e[h],e[s]);n=n+1;e=d[n];break;end;t=e[h]f[t]=f[t](f[t+1])until true;else t=e[h]f[t]=f[t](f[t+1])end end end else if t>=23 then repeat if t~=26 then if not f[e[h]]then n=n+1;else n=e[s];end;break;end;local e=e[h]f[e]=f[e](f[e+1])until true;else local e=e[h]f[e]=f[e](f[e+1])end end end else if t>19 then if 22<=t then if 22==t then local l,t,m,j,d;local n=0;while n>-1 do if n>=3 then if n>4 then if 6==n then n=-2;else f(d,j);end else if 1~=n then for e=37,60 do if n>3 then d=l[t];break;end;j=l[m];break;end;else d=l[t];end end else if 1>n then l=e;else if-1<n then for e=41,93 do if 2>n then t=h;break;end;m=s;break;end;else t=h;end end end n=n+1 end else local t;for l=0,1 do if l>0 then if not f[e[h]]then n=n+1;else n=e[s];end;else t=e[h]f[t]=f[t]()n=n+1;e=d[n];end end end else if 21>t then local t,j,l,d,m;local n=0;while n>-1 do if n>2 then if n<5 then if 4>n then d=t[l];else m=t[j];end else if 6>n then f(m,d);else n=-2;end end else if 0>=n then t=e;else if n>-2 then repeat if n>1 then l=s;break;end;j=h;until true;else l=s;end end end n=n+1 end else f[e[h]]=f[e[s]];end end else if 17>=t then if t>=14 then repeat if t<17 then n=e[s];break;end;m[e[s]]=f[e[h]];until true;else m[e[s]]=f[e[h]];end else if t>15 then for l=24,68 do if t~=18 then if(f[e[h]]==e[j])then n=n+1;else n=e[s];end;break;end;f[e[h]]=(e[s]~=0);break;end;else f[e[h]]=(e[s]~=0);end end end end else if 8<=t then if 12<=t then if t>13 then if 13<=t then for n=49,60 do if t>14 then f[e[h]]=m[e[s]];break;end;do return end;break;end;else f[e[h]]=m[e[s]];end else if 13~=t then m[e[s]]=f[e[h]];else f[e[h]]=(e[s]~=0);end end else if t<=9 then if t==9 then f[e[h]]();else local e=e[h]f[e]=f[e](f[e+1])end else if 10<t then f[e[h]]=m[e[s]];else for t=0,1 do if t==0 then f[e[h]]=m[e[s]];n=n+1;e=d[n];else if f[e[h]]then n=n+1;else n=e[s];end;end end end end end else if t>=4 then if 5>=t then if 5==t then local e=e[h]f[e]=f[e]()else if f[e[h]]then n=n+1;else n=e[s];end;end else if 5<t then repeat if t~=6 then f[e[h]]();break;end;if f[e[h]]then n=n+1;else n=e[s];end;until true;else f[e[h]]();end end else if t<=1 then if t>-1 then repeat if t<1 then f[e[h]]=f[e[s]][f[e[j]]];break;end;do return end;until true;else f[e[h]]=f[e[s]][f[e[j]]];end else if t>0 then repeat if t>2 then n=e[s];break;end;f[e[h]]=f[e[s]][f[e[j]]];until true;else n=e[s];end end end end end n=1+n;end;end;return g end;local s=0xff;local j={};local t=(1);local h='';(function(n)local f=n local d=0x00 local e=0x00 f={(function(t)if d>0x23 then return t end d=d+1 e=(e+0x84e-t)%0x42 return(e%0x03==0x1 and(function(f)if not n[f]then e=e+0x01 n[f]=(0xda);end return true end)'smlXJ'and f[0x3](0x1e7+t))or(e%0x03==0x2 and(function(f)if not n[f]then e=e+0x01 n[f]=(0x9b);h='\37';s={function()s()end};h=h..'\100\43';end return true end)'vqZFd'and f[0x2](t+0x19c))or(e%0x03==0x0 and(function(f)if not n[f]then e=e+0x01 n[f]=(0xdd);end return true end)'bMdDG'and f[0x1](t+0x18d))or t end),(function(m)if d>0x2a then return m end d=d+1 e=(e+0xef2-m)%0x4c return(e%0x03==0x0 and(function(f)if not n[f]then e=e+0x01 n[f]=(0x22);end return true end)'ReAfO'and f[0x2](0x348+m))or(e%0x03==0x1 and(function(f)if not n[f]then e=e+0x01 n[f]=(0x46);end return true end)'ljfjH'and f[0x1](m+0x362))or(e%0x03==0x2 and(function(f)if not n[f]then e=e+0x01 n[f]=(0x88);h={h..'\58 a',h};j[t]=g();t=t+((not l.mFdXVimx)and 1 or 0);h[1]='\58'..h[1];s[2]=0xff;end return true end)'DLDXX'and f[0x3](m+0xd2))or m end),(function(l)if d>0x26 then return l end d=d+1 e=(e+0x4be-l)%0x4f return(e%0x03==0x0 and(function(f)if not n[f]then e=e+0x01 n[f]=(0xc0);end return true end)'QiEKa'and f[0x2](0x88+l))or(e%0x03==0x2 and(function(f)if not n[f]then e=e+0x01 n[f]=(0x17);s[2]=(s[2]*(b(function()j()end,u(h))-b(s[1],u(h))))+1;j[t]={};s=s[2];t=t+s;end return true end)'OIyvZ'and f[0x3](l+0xea))or(e%0x03==0x1 and(function(f)if not n[f]then e=e+0x01 n[f]=(0xf6);j[t]=_();t=t+s;end return true end)'avLpt'and f[0x1](l+0x2eb))or l end)}f[0x1](0x186)end){};local e=k(u(j));return e(...);end return k((function()local n={}local e=0x01;local f;if l.mFdXVimx then f=l.mFdXVimx(k)else f=''end if l.qVRmBA_K(f,l.qEUPMhQa)then e=e+0;else e=e+1;end n[e]=0x02;n[n[e]+0x01]=0x03;return n;end)(),...)end)((function(e,f,n,h,s,t)local t;if e>3 then if e<=5 then if e~=0 then repeat if e<5 then local e=h;local t,l,s=s(2);do return function()local n,f,h,d=f(n,e(e,e),e(e,e)+3);e(4);return(d*t)+(h*l)+(f*s)+n;end;end;break;end;local e=h;do return function()local n=f(n,e(e,e),e(e,e));e(1);return n;end;end;until true;else local e=h;do return function()local n=f(n,e(e,e),e(e,e));e(1);return n;end;end;end else if 7>e then do return s[n]end;else if 5<e then repeat if e>7 then do return n(e,nil,n);end break;end;do return setmetatable({},{['__\99\97\108\108']=function(e,f,h,s,n)if n then return e[n]elseif s then return e else e[f]=h end end})end until true;else do return n(e,nil,n);end end end end else if e>=2 then if-1~=e then repeat if 2<e then do return f(1),f(4,s,h,n,f),f(5,s,h,n)end;break;end;do return 16777216,65536,256 end;until true;else do return 16777216,65536,256 end;end else if e>=-2 then repeat if 0~=e then do return function(f,e,n)if n then local e=(f/2^(e-1))%2^((n-1)-(e-1)+1);return e-e%1;else local e=2^(e-1);return(f%(e+e)>=e)and 1 or 0;end;end;end;break;end;do return f(1),f(4,s,h,n,f),f(5,s,h,n)end;until true;else do return function(n,e,f)if f then local e=(n/2^(e-1))%2^((f-1)-(e-1)+1);return e-e%1;else local e=2^(e-1);return(n%(e+e)>=e)and 1 or 0;end;end;end;end end end end),...)
+local orion = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+
+local winwd = orion:MakeWindow({Name = "arm pro gui", HidePremium = false, SaveConfig = true, ConfigFolder = "armprocfg"})
+
+local maint = winwd:MakeTab({Name = "main", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local orbit = winwd:MakeTab({Name = "orbit", Icon = "rbxassetid://4483360751", PremiumOnly = false})
+local telep = winwd:MakeTab({Name = "telep", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local aimn = winwd:MakeTab({Name = "aimn", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local misc = winwd:MakeTab({Name = "misc", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local setts = winwd:MakeTab({Name = "setts", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local pres = winwd:MakeTab({Name = "pres", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local vis = winwd:MakeTab({Name = "vis", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+local auto = winwd:MakeTab({Name = "auto", Icon = "rbxassetid://4483345998", PremiumOnly = false})
+
+local modex = "localx"
+local svalv = 1
+local obito = false
+local oradr = 3
+local orspd = 1
+local obtar = nil
+local tltrg = nil
+local aimen = false
+local aitrg = nil
+local pulen = false
+local plstr = 1
+local trail = false
+local trlen = 10
+local autox = false
+local intvl = 0.5
+local lastt = tick()
+local lockt = nil
+local vison = false
+local vislns = {}
+local preset = "none"
+
+local function pllst()
+    local out = {}
+    for _, p in ipairs(game.Players:GetPlayers()) do
+        table.insert(out, p.Name)
+    end
+    return out
+end
+
+local function tgtls()
+    local out = {}
+    local lp = game.Players.LocalPlayer
+    if modex == "localx" then
+        if lp and lp.Character then
+            table.insert(out, lp)
+        end
+    elseif modex == "other" then
+        for _, p in ipairs(game.Players:GetPlayers()) do
+            if p ~= lp and p.Character then
+                table.insert(out, p)
+            end
+        end
+    elseif modex == "allxx" then
+        for _, p in ipairs(game.Players:GetPlayers()) do
+            if p.Character then
+                table.insert(out, p)
+            end
+        end
+    end
+    return out
+end
+
+local function sfire(chr, nam, cf)
+    if not chr then
+        return
+    end
+    local obj = chr:FindFirstChild(nam)
+    if obj and obj.FireServer then
+        pcall(function()
+            obj:FireServer(cf)
+        end)
+    end
+end
+
+local function angch(plr)
+    if not plr or not plr.Character then
+        return
+    end
+    sfire(plr.Character, "ArmAngleChange", CFrame.new(1, .56, -svalv))
+end
+
+local function doang()
+    for _, p in ipairs(tgtls()) do
+        angch(p)
+    end
+end
+
+local function orbup()
+    if not obito or not obtar or not obtar.Character then
+        return
+    end
+    local chr = obtar.Character
+    local part = chr:FindFirstChild("HumanoidRootPart") or chr.PrimaryPart
+    if not part then
+        return
+    end
+    local start = tick()
+    spawn(function()
+        while obito and obtar and obtar.Character and obtar.Parent do
+            local elp = tick() - start
+            local ang = elp * orspd
+            local x = math.cos(ang) * oradr
+            local y = math.sin(ang * 0.5) * 0.5
+            local z = math.sin(ang) * oradr
+            local targcf = CFrame.new(part.Position) * CFrame.new(x, y + 2, z)
+            sfire(obtar.Character, "ArmAngleChange", targcf)
+            wait(1/60)
+        end
+    end)
+end
+
+local function telto(trg)
+    if not trg or not trg.Character then
+        return
+    end
+    sfire(trg.Character, "ArmAngleChange", trg.Character:GetPivot())
+end
+
+local function aimt()
+    if not aimen or not aitrg or not aitrg.Character then
+        return
+    end
+    local chr = aitrg.Character
+    local hrp = chr:FindFirstChild("HumanoidRootPart")
+    if not hrp then
+        return
+    end
+    local lp = game.Players.LocalPlayer
+    local tgtpos = lp.Character and lp.Character:FindFirstChild("Head") and lp.Character.Head.Position or hrp.Position
+    local lookcf = CFrame.new(hrp.Position, tgtpos)
+    sfire(aitrg.Character, "ArmAngleChange", lookcf)
+end
+
+local function pulsr()
+    while pulen do
+        for _, p in ipairs(tgtls()) do
+            if p.Character then
+                local cf = CFrame.Angles(0, math.sin(tick() * plstr) * .2, 0)
+                sfire(p.Character, "ArmAngleChange", cf)
+            end
+        end
+        wait(0.1)
+    end
+end
+
+local function autoq()
+    while autox do
+        if tick() - lastt >= intvl then
+            doang()
+            lastt = tick()
+        end
+        wait(0.1)
+    end
+end
+
+local function visd()
+    for _, ln in ipairs(vislns) do
+        if ln and ln.Parent then
+            ln:Destroy()
+        end
+    end
+    vislns = {}
+    if not vison then
+        return
+    end
+    for _, p in ipairs(game.Players:GetPlayers()) do
+        if p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local a = p.Character.HumanoidRootPart.Position
+            local b = workspace.CurrentCamera.CFrame.Position
+            local part = Instance.new("Part")
+            part.Anchored = true
+            part.CanCollide = false
+            part.Size = Vector3.new(0.1, 0.1, (a - b).Magnitude)
+            part.CFrame = CFrame.new(a, b) * CFrame.new(0, 0, -part.Size.Z/2)
+            part.Material = Enum.Material.Neon
+            part.Transparency = 0.6
+            part.Parent = workspace
+            table.insert(vislns, part)
+        end
+    end
+end
+
+local function locktgt()
+    if lockt and lockt.Character then
+        aitrg = lockt
+        obtar = lockt
+    end
+end
+
+maint:AddToggle({
+    Name = "local",
+    Default = true,
+    Flag = "modloc",
+    Callback = function(v)
+        if v then
+            modex = "localx"
+            orion.Flags["modoth"] = false
+            orion.Flags["modall"] = false
+        end
+    end
+})
+
+maint:AddToggle({
+    Name = "other",
+    Default = false,
+    Flag = "modoth",
+    Callback = function(v)
+        if v then
+            modex = "other"
+            orion.Flags["modloc"] = false
+            orion.Flags["modall"] = false
+        end
+    end
+})
+
+maint:AddToggle({
+    Name = "allxx",
+    Default = false,
+    Flag = "modall",
+    Callback = function(v)
+        if v then
+            modex = "allxx"
+            orion.Flags["modloc"] = false
+            orion.Flags["modoth"] = false
+        end
+    end
+})
+
+maint:AddSlider({
+    Name = "sval",
+    Min = 0,
+    Max = 10,
+    Default = 1,
+    Flag = "svalf",
+    Callback = function(v)
+        svalv = v
+    end
+})
+
+maint:AddToggle({
+    Name = "auto",
+    Default = false,
+    Flag = "autof",
+    Callback = function(v)
+        autox = v
+        if v then
+            spawn(autoq)
+        end
+    end
+})
+
+maint:AddSlider({
+    Name = "intvl",
+    Min = 0.1,
+    Max = 2,
+    Default = 0.5,
+    Flag = "intvf",
+    Callback = function(v)
+        intvl = v
+    end
+})
+
+maint:AddButton({
+    Name = "do angle",
+    Callback = function()
+        doang()
+    end
+})
+
+orbit:AddDropdown({
+    Name = "targ",
+    Default = "none",
+    Options = pllst(),
+    Flag = "orbtarg",
+    Callback = function(v)
+        obtar = game.Players:FindFirstChild(v)
+    end
+})
+
+orbit:AddSlider({
+    Name = "radus",
+    Min = 1,
+    Max = 12,
+    Default = 3,
+    Flag = "oradr",
+    Callback = function(v)
+        oradr = v
+    end
+})
+
+orbit:AddSlider({
+    Name = "sped",
+    Min = 0.1,
+    Max = 5,
+    Default = 1,
+    Flag = "orspd",
+    Callback = function(v)
+        orspd = v
+    end
+})
+
+orbit:AddToggle({
+    Name = "enorb",
+    Default = false,
+    Flag = "enorb",
+    Callback = function(v)
+        obito = v
+        if v then
+            spawn(orbup)
+        end
+    end
+})
+
+orbit:AddButton({
+    Name = "orbme",
+    Callback = function()
+        obtar = game.Players.LocalPlayer
+        obito = true
+        spawn(orbup)
+    end
+})
+
+telep:AddDropdown({
+    Name = "telto",
+    Default = "none",
+    Options = pllst(),
+    Flag = "teltar",
+    Callback = function(v)
+        tltrg = game.Players:FindFirstChild(v)
+    end
+})
+
+telep:AddButton({
+    Name = "tel arm to tar",
+    Callback = function()
+        telto(tltrg)
+    end
+})
+
+telep:AddButton({
+    Name = "tel arm to me",
+    Callback = function()
+        telto(game.Players.LocalPlayer)
+    end
+})
+
+aimn:AddDropdown({
+    Name = "aimtar",
+    Default = "none",
+    Options = pllst(),
+    Flag = "aimtar",
+    Callback = function(v)
+        aitrg = game.Players:FindFirstChild(v)
+    end
+})
+
+aimn:AddToggle({
+    Name = "enaim",
+    Default = false,
+    Flag = "enaim",
+    Callback = function(v)
+        aimen = v
+        if v then
+            spawn(function()
+                while aimen do
+                    aimt()
+                    wait(0.1)
+                end
+            end)
+        end
+    end
+})
+
+aimn:AddButton({
+    Name = "snap",
+    Callback = function()
+        aimt()
+    end
+})
+
+misc:AddToggle({
+    Name = "pulse",
+    Default = false,
+    Flag = "pulse",
+    Callback = function(v)
+        pulen = v
+        if v then
+            spawn(pulsr)
+        end
+    end
+})
+
+misc:AddSlider({
+    Name = "plstr",
+    Min = 0.1,
+    Max = 5,
+    Default = 1,
+    Flag = "plstr",
+    Callback = function(v)
+        plstr = v
+    end
+})
+
+misc:AddToggle({
+    Name = "trail",
+    Default = false,
+    Flag = "trail",
+    Callback = function(v)
+        trail = v
+    end
+})
+
+misc:AddSlider({
+    Name = "trlen",
+    Min = 2,
+    Max = 30,
+    Default = 10,
+    Flag = "trlen",
+    Callback = function(v)
+        trlen = v
+    end
+})
+
+misc:AddToggle({
+    Name = "lock",
+    Default = false,
+    Flag = "lock",
+    Callback = function(v)
+        if v then
+            lockt = game.Players.LocalPlayer
+            locktgt()
+        else
+            lockt = nil
+        end
+    end
+})
+
+setts:AddToggle({
+    Name = "vis",
+    Default = false,
+    Flag = "visf",
+    Callback = function(v)
+        vison = v
+        visd()
+    end
+})
+
+setts:AddButton({
+    Name = "ref",
+    Callback = function()
+        visd()
+    end
+})
+
+setts:AddSlider({
+    Name = "global",
+    Min = 0.5,
+    Max = 3,
+    Default = 1,
+    Flag = "globl",
+    Callback = function(v)
+        orspd = orspd * v
+    end
+})
+
+pres:AddDropdown({
+    Name = "preset",
+    Default = "none",
+    Options = {"fast", "orbit", "aimbot", "combo", "chill"},
+    Flag = "preset",
+    Callback = function(v)
+        preset = v
+        if v == "fast" then
+            modex = "allxx"
+            svalv = 5
+            orspd = 3
+            intvl = 0.2
+            autox = true
+            aimen = true
+            obito = true
+        elseif v == "orbit" then
+            obito = true
+            oradr = 5
+            orspd = 1.5
+            modex = "other"
+        elseif v == "aimbot" then
+            aimen = true
+            aitrg = game.Players.LocalPlayer
+        elseif v == "combo" then
+            autox = true
+            aimen = true
+            obito = true
+            modex = "allxx"
+        elseif v == "chill" then
+            autox = false
+            aimen = false
+            obito = false
+            svalv = 1
+        end
+    end
+})
+
+auto:AddToggle({
+    Name = "autolock",
+    Default = false,
+    Flag = "autol",
+    Callback = function(v)
+        if v then
+            spawn(function()
+                while true do
+                    locktgt()
+                    wait(1)
+                end
+            end)
+        end
+    end
+})
+
+auto:AddButton({
+    Name = "full go",
+    Callback = function()
+        autox = true
+        aimen = true
+        obito = true
+        modex = "allxx"
+    end
+})
+
+vis:AddToggle({
+    Name = "showvis",
+    Default = false,
+    Flag = "showv",
+    Callback = function(v)
+        vison = v
+        visd()
+    end
+})
+
+vis:AddButton({
+    Name = "clrvis",
+    Callback = function()
+        vison = false
+        visd()
+    end
+})
+
+game.Players.PlayerAdded:Connect(function(p)
+    wait(1)
+    visd()
+end)
+
+spawn(function()
+    while true do
+        if obito and obtar then
+            orbup()
+        end
+        if trail then
+            for _, p in ipairs(tgtls()) do
+                if p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+                    local hrp = p.Character.HumanoidRootPart
+                    local pts = {}
+                    table.insert(pts, hrp.Position)
+                    for i = 1, trlen do
+                        local off = Vector3.new(0, 0, 0)
+                        local part = Instance.new("Part")
+                        part.Anchored = true
+                        part.CanCollide = false
+                        part.Size = Vector3.new(0.15, 0.15, 0.15)
+                        part.CFrame = CFrame.new(hrp.Position) * CFrame.Angles(0, 0, 0) * CFrame.new(0, -i * 0.2, 0)
+                        part.Material = Enum.Material.Neon
+                        part.Transparency = 0.7
+                        part.Parent = workspace
+                        game:GetService("Debris"):AddItem(part, 0.2)
+                    end
+                end
+            end
+        end
+        if autox then
+            if tick() - lastt >= intvl then
+                doang()
+                lastt = tick()
+            end
+        end
+        if aimen then
+            aimt()
+        end
+        wait(0.1)
+    end
+end)
+
+orion:Init()
