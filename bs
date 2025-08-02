@@ -1,4 +1,4 @@
-local orion = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+local orion = loadstring(game:HttpGet("https://raw.githubusercontent.com/LordNxqt/UiLibrary/refs/heads/main/Orion"))()
 
 local winwd = orion:MakeWindow({Name = "arm pro gui", HidePremium = false, SaveConfig = true, ConfigFolder = "armprocfg"})
 
